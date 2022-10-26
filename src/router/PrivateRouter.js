@@ -1,8 +1,17 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
+import Home from '../pages/home/Home';
 
-const PrivateRouter = () => {
+const PrivateRouter = ({user,setUser}) => {
+
+  console.log(user);
+  
   return (
-    <div>PrivateRouter</div>
+  <div>
+    {user &&  <>
+    <Outlet/>
+ </> }
+  </div>
   )
 }
 

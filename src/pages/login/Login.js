@@ -1,11 +1,17 @@
 import React from 'react'
+import { Outlet, useNavigate } from 'react-router-dom'
 import LoginDiv, { LoginButton, LoginLabel, Loginİnput } from './Login.style'
 
-const Login = () => {
+const Login = ({user,setUser}) => {
 
+  const navigate=useNavigate()
+
+console.log(user)
 
 const handleSubmit=(e)=>{
   e.preventDefault()
+  navigate("/home")
+  
 }
 
 
@@ -23,11 +29,11 @@ const handleSubmit=(e)=>{
          <Loginİnput type="text" />
          <br /> <br />
 
-         <LoginButton type='submit' > Submit</LoginButton>   
+         <LoginButton type='submit'onClick={()=>setUser(true)}> Submit</LoginButton>   
       </form>
 
 
-
+      {/* <Outlet/> */}
     </LoginDiv>
     
 
