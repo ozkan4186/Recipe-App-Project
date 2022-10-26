@@ -5,6 +5,7 @@ const Details = () => {
   return (
     <div>
       <Navbar/>
+      
     </div>
   )
 }

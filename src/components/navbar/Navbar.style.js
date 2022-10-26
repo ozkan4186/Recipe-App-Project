@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const NavbarDiv = styled.div`
   display: flex;
@@ -6,12 +6,13 @@ const NavbarDiv = styled.div`
   align-items: center;
 `;
 
-export const NavbarUl = styled.ul`
-  display: flex;
-  justify-content: space-around;
-  gap: 0.7rem;
-  list-style-type: none;
-  font-size: 2rem;
+export const NavbarUl=styled.ul`
+display:flex;
+gap: 0.7rem;
+list-style-type:none ;
+
+
 `;
 
-export default NavbarUl;
+
+export default NavbarDiv;

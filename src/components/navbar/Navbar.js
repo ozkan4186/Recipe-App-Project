@@ -1,41 +1,37 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import logo from "../../assets/blue.jpg";
-import NavbarDiv, { NavbarUl } from "./Navbar.style";
+import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import yemekLogo from "../../assets/blue.jpg"
+import NavbarDiv, { NavbarUl } from './Navbar.style'
 
 const Navbar = () => {
   return (
     <NavbarDiv>
-      <img src={logo} width="150" alt="" />
-
-      <NavbarUl>
-        <li >
-          <NavLink
-            to={"/about"}
-            style={({ isActive }) => ({ color: isActive && "red" })}
-          >
-            About
-          </NavLink>
-        </li>
+        <img src={yemekLogo} width="150"  alt="" />
+    <NavbarUl>
+    <li>
+        <NavLink to={"/home"} style={({isActive})=>({color:isActive && "red"})}>
+             Home
+        
+        </NavLink></li>
         <li>
-          <NavLink
-            to={"/contact"}
-            style={({ isActive }) => ({ color: isActive && "red" })}
-          >
-            Contact
-          </NavLink>
-        </li>
+        <NavLink to={"/about"} style={({isActive})=>({color:isActive && "red"})}>
+             About
+        
+        </NavLink></li>
         <li>
-          <NavLink
-            to={"/"}
-            style={({ isActive }) => ({ color: isActive && "red" })}
-          >
-            Lagout
-          </NavLink>
-        </li>
-      </NavbarUl>
-    </NavbarDiv>
-  );
-};
+        <NavLink to={"/contact"} style={({isActive})=>({color:isActive && "red"})}>
+        Contact
+        
+        </NavLink></li>
+        <li>
+        <NavLink to={"/"} style={({isActive})=>({color:isActive && "red"})}>
+        Logout
+        
+        </NavLink></li>
+    </NavbarUl>
+        </NavbarDiv>
+    
+  )
+}
 
-export default Navbar;
+export default Navbar

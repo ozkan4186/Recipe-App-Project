@@ -1,41 +1,56 @@
 import React from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
-import LoginDiv, { LoginButton, LoginLabel, Loginİnput } from './Login.style'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import PrivateRouter from '../../router/PrivateRouter'
+import LoginDiv ,{LoginLabel,LoginButton} from './Login.style'
 
-const Login = ({user,setUser}) => {
+const Login = ({setLoginOn,loginOn}) => {
+const [veri, setVeri] = useState({name:"",password:""})
 
-  const navigate=useNavigate()
+const navigate = useNavigate()
 
-console.log(user)
+  const handleChange=(e)=>{
+    setVeri({
+      ...veri,  [e.target.id] : e.target.value
+    })
+console.log(veri);
+  }
 
-const handleSubmit=(e)=>{
-  e.preventDefault()
-  navigate("/home")
-  
-}
+  const onSubmitLogin=(e)=>{
+e.preventDefault() ;
+sessionStorage.setItem("veri", JSON.stringify(veri));
+setVeri({ username: "", password: "" });
+navigate("/home")
 
+  }
 
   return (
-    <LoginDiv>
-      <h1>Login</h1>
-      <form action="" onSubmit={handleSubmit} >
-        <LoginLabel htmlFor="">Enter Your Name</LoginLabel>
-        <br />
-        <Loginİnput type="text" />
-         <br /> <br />
+   <LoginDiv>
+        <form onSubmit={onSubmitLogin} action="" >
+          <h1>Login</h1>
 
-        <LoginLabel htmlFor="">Enter Your Password</LoginLabel>
-        <br />
-         <Loginİnput type="text" />
-         <br /> <br />
-
-         <LoginButton type='submit'onClick={()=>setUser(true)}> Submit</LoginButton>   
-      </form>
+            <LoginLabel htmlFor="name">İsminizi Giriniz</LoginLabel>
+            <br />
 
 
-      {/* <Outlet/> */}
-    </LoginDiv>
-    
+            <input value={veri.name}  onChange={handleChange} style={{border:"2px solid #00CCC0" , borderRadius:"5px",marginTop:"1rem",padding:"0.3rem"}} type="text" id='name' required />
+            <br />
+<br />
+            <LoginLabel htmlFor="password">Şifrenizi Giriniz</LoginLabel>
+            <br />
+
+            <input value={veri.password} onChange={handleChange} style={{border:"2px solid #00CCC0" , borderRadius:"5px",marginTop:"1rem",padding:"0.3rem"}} type="password" id='password' required />
+
+
+            <br /><br />
+          <LoginButton type="submit"onClick={()=> setLoginOn(true)}>Submit</LoginButton>
+          
+            
+        </form>
+
+   
+
+   </LoginDiv>
 
   )
 }
