@@ -63,7 +63,7 @@ const Details = () => {
           ))}
         </div>
 
-              <button className='btn btn-danger' onClick={()=>navigate(-1)} >go back</button>
+         <button className='btn btn-danger' onClick={()=>navigate(-1)} >go back</button>
         <button className='btn btn-danger' onClick={()=>navigate("/contact")} >go next</button>
       </DetailStyle>
             

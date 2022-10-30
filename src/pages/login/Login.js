@@ -21,7 +21,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sessionStorage.setItem("change", JSON.stringify(change));
-    navigate("/home");
+   {change && navigate("/home") } 
     setChange({
       name: "",
       password: "",
@@ -29,6 +29,9 @@ const Login = () => {
   };
 
   return (
+    <div className="login" >
+
+  
     <LoginDiv>
       <h1>LOGİN</h1>
       <img style={{ width: "200px" }} src={home} alt="" />
@@ -41,6 +44,7 @@ const Login = () => {
           type="text"
           id="name"
           required
+            placeholder="username"
         />
         <br />
         <LoginLabel htmlFor="">Enter Your Password</LoginLabel>
@@ -48,14 +52,16 @@ const Login = () => {
         <Loginİnput
           value={change.password}
           onChange={handleChange}
-          type="text"
+          type="password"
           id="password"
+          placeholder="password"
           required
         />
         <br />
         <LoginButton type="submit">Login</LoginButton>
       </form>
     </LoginDiv>
+      </div>
   );
 };
 

@@ -21,7 +21,7 @@ const Home = () => {
 
   const apiId = "1b28d0c7";
   const apiKeyy = "9dd2626769af8779895e42901917977f	";
-  const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${value.foodname}  &app_id=${apiId}&app_key=${apiKeyy}&mealType=${value.mealtype}  `;
+  const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${value.foodname}&app_id=${apiId}&app_key=${apiKeyy}&mealType=${value.mealtype}  `;
 
   const getApi = async () => {
     try {
@@ -54,9 +54,9 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home" >
       <Navbar />
-      <HomeDiv>
+      <HomeDiv  >
       
         <form onSubmit={handleSubmit} action="">
           <HomeLabel htmlFor="">Food Name</HomeLabel>
@@ -67,6 +67,7 @@ const Home = () => {
             id="foodname"
             type="text"
             required
+            placeholder="foodname"
           />
           <br />
           <HomeLabel htmlFor="">Meal Type?</HomeLabel>
