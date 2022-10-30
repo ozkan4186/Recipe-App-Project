@@ -5,7 +5,7 @@ const DetailStyle = styled.div`
  justify-content: space-around;
  flex-wrap: wrap;
  align-items: center;
- background-color: lightseagreen;
+ background-color:rgba(255, 72, 87, 1);
 gap: 3rem;
 padding: 3rem;
 margin: 2rem;

@@ -1,31 +1,29 @@
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-import Navbar from '../../components/navbar/Navbar'
-import DetailStyle from './Details.style'
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
+import DetailStyle from "./Details.style";
 
 const Details = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
-  const{state}=useLocation()
-  console.log("kmsdmmd")
-  const {
-    label,
-    ingredientLines,
-    image
-  } = state;
+  const { state } = useLocation();
+  console.log("kmsdmmd");
+  const { label, ingredientLines, image } = state;
   console.log(image);
   return (
     <div>
-      <Navbar/>
-       <DetailStyle>
-  
+      <Navbar />
+              <button className='btn btn-warning m-3' onClick={()=>navigate(-1)} >go back</button> 
+ <button className='btn btn-warning' onClick={()=>navigate("/contact")} >go next</button>
+
+      <DetailStyle>
         <ol className="ul_style">
           {ingredientLines.map((item, index) => {
             return <li key={index}>{item}</li>;
           })}
         </ol>
 
-        <div >
+        <div>
           <h1>{label}</h1>
           <div className="img_style">
             <img src={image} alt="" />
@@ -62,13 +60,9 @@ const Details = () => {
             </li>
           ))}
         </div>
-
-         <button className='btn btn-danger' onClick={()=>navigate(-1)} >go back</button>
-        <button className='btn btn-danger' onClick={()=>navigate("/contact")} >go next</button>
       </DetailStyle>
-            
     </div>
-  )
-}
+  );
+};
 
-export default Details
+export default Details;
