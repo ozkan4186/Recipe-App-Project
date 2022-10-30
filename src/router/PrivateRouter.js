@@ -1,20 +1,11 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
-// import Home from '../pages/home/Home'
 
-const PrivateRouter = ({setLoginOn,loginOn}) => {
-  const veri = JSON.parse(sessionStorage.getItem("veri"));
+const PrivateRouter = () => {
 
- 
-  return ( 
-    
-    veri  ? <> <Outlet/> </> : <Navigate to="/" />
-
-
-
-
-    
-   
+  const change=JSON.parse(sessionStorage.getItem("change"))
+  return (
+    change ? <Outlet/> : <Navigate to="/"/>
   )
 }
 

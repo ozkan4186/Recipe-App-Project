@@ -1,58 +1,62 @@
-import React from 'react'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import PrivateRouter from '../../router/PrivateRouter'
-import LoginDiv ,{LoginLabel,LoginButton} from './Login.style'
+import React, { useState } from "react";
+import LoginDiv, { LoginButton, LoginLabel, Loginİnput } from "./Login.style";
+import home from "../../assets/home.svg";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({setLoginOn,loginOn}) => {
-const [veri, setVeri] = useState({name:"",password:""})
+const Login = () => {
+  const [change, setChange] = useState({
+    name: "",
+    password: "",
+  });
 
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleChange=(e)=>{
-    setVeri({
-      ...veri,  [e.target.id] : e.target.value
-    })
-console.log(veri);
-  }
-
-  const onSubmitLogin=(e)=>{
-e.preventDefault() ;
-sessionStorage.setItem("veri", JSON.stringify(veri));
-setVeri({ username: "", password: "" });
-navigate("/home")
-
-  }
+  const handleChange = (e) => {
+    setChange({
+      ...change,
+      [e.target.id]: e.target.value
+    });
+  };
+  console.log(change);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sessionStorage.setItem("change", JSON.stringify(change));
+    navigate("/home");
+    setChange({
+      name: "",
+      password: "",
+    });
+  };
 
   return (
-   <LoginDiv>
-        <form onSubmit={onSubmitLogin} action="" >
-          <h1>Login</h1>
+    <LoginDiv>
+      <h1>LOGİN</h1>
+      <img style={{ width: "200px" }} src={home} alt="" />
+      <form onSubmit={handleSubmit} action="">
+        <LoginLabel htmlFor="">Enter Your Name</LoginLabel>
+        <br />
+        <Loginİnput
+          value={change.name}
+          onChange={handleChange}
+          type="text"
+          id="name"
+          required
+        />
+        <br />
+        <LoginLabel htmlFor="">Enter Your Password</LoginLabel>
+        <br />
+        <Loginİnput
+          value={change.password}
+          onChange={handleChange}
+          type="text"
+          id="password"
+          required
+        />
+        <br />
+        <LoginButton type="submit">Login</LoginButton>
+      </form>
+    </LoginDiv>
+  );
+};
 
-            <LoginLabel htmlFor="name">İsminizi Giriniz</LoginLabel>
-            <br />
-
-
-            <input value={veri.name}  onChange={handleChange} style={{border:"2px solid #00CCC0" , borderRadius:"5px",marginTop:"1rem",padding:"0.3rem"}} type="text" id='name' required />
-            <br />
-<br />
-            <LoginLabel htmlFor="password">Şifrenizi Giriniz</LoginLabel>
-            <br />
-
-            <input value={veri.password} onChange={handleChange} style={{border:"2px solid #00CCC0" , borderRadius:"5px",marginTop:"1rem",padding:"0.3rem"}} type="password" id='password' required />
-
-
-            <br /><br />
-          <LoginButton type="submit"onClick={()=> setLoginOn(true)}>Submit</LoginButton>
-          
-            
-        </form>
-
-   
-
-   </LoginDiv>
-
-  )
-}
-
-export default Login
+export default Login;

@@ -1,37 +1,32 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import yemekLogo from "../../assets/blue.jpg"
-import NavbarDiv, { NavbarUl } from './Navbar.style'
+import React from "react";
+import NavbarDiv, { NavbarLi, NavbarUl } from "./Navbar.style";
+import logos from "../../assets/logo.jpg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <NavbarDiv>
-        <img src={yemekLogo} width="150"  alt="" />
-    <NavbarUl>
-    <li>
-        <NavLink to={"/home"} style={({isActive})=>({color:isActive && "red"})}>
-             Home
-        
-        </NavLink></li>
-        <li>
-        <NavLink to={"/about"} style={({isActive})=>({color:isActive && "red"})}>
-             About
-        
-        </NavLink></li>
-        <li>
-        <NavLink to={"/contact"} style={({isActive})=>({color:isActive && "red"})}>
-        Contact
-        
-        </NavLink></li>
-        <li>
-        <NavLink to={"/"} style={({isActive})=>({color:isActive && "red"})}>
-        Logout
-        
-        </NavLink></li>
-    </NavbarUl>
-        </NavbarDiv>
-    
-  )
-}
+      <img
+        style={{ borderRadius: "50%", cursor: "pointer" }}
+        src={logos}
+        alt=""
+      />
+      <NavbarUl  >
+        <NavbarLi>
+          <Link  style={{color:"red" ,textDecoration:"none" }} to="/home">Home</Link>
+        </NavbarLi>
+        <NavbarLi  >
+          <Link style={{color:"red" ,textDecoration:"none" }}  to="/about">About</Link>
+        </NavbarLi>
+        <NavbarLi>
+          <Link style={{color:"red" ,textDecoration:"none" }} to="/contact">Contact</Link>
+        </NavbarLi>
+        <NavbarLi>
+          <Link style={{color:"red" ,textDecoration:"none" }} to="/">Logaut</Link>
+        </NavbarLi>
+      </NavbarUl>
+    </NavbarDiv>
+  );
+};
 
-export default Navbar
+export default Navbar;

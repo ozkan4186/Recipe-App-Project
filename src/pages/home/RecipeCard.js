@@ -1,9 +1,29 @@
-import React from 'react'
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const RecipeCard = () => {
+const RecipeCard = ({ item }) => {
+  const navigate = useNavigate();
+  console.log(item.recipe);
   return (
-    <div>RecipeCard</div>
-  )
-}
+    <div>
+      <div className="card shadow " style={{ width: "18rem", height: "26rem" }}>
+        <img src={item?.recipe?.image} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title">{item?.recipe?.label}</h5>
 
-export default RecipeCard
+          <button
+            href="#"
+           className="btn btn-primary"
+           style={{backgroundColor:"#1B7F79"}}
+           onClick={()=>navigate("/details", {state:item.recipe}) }
+           
+          > 
+            Detail
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default RecipeCard;

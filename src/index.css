@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: cadetblue;
- font-family: 'Lobster Two', cursive;
+  font-family: 'Lobster Two', cursive;
+  background-color:rgba(0, 204, 191, 1)!important
 }
 
 code {
