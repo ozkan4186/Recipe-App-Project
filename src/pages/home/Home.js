@@ -12,8 +12,18 @@ import HomeDiv, {
 } from "./Home.style";
 import RecipeCard from "./RecipeCard";
 
+
+
+
 const Home = () => {
-  const [recip, setRecip] = useState([]);
+ const initializePreviousSearchData = () => {
+   return JSON.parse(localStorage.getItem("recip")) ?? [];
+ };
+
+ 
+ 
+
+  const [recip, setRecip] = useState(initializePreviousSearchData());
   const [value, setValue] = useState({
     foodname: "",
     mealtype: "",
@@ -34,8 +44,9 @@ const Home = () => {
     }
   };
   useEffect(() => {
+    localStorage.setItem("recip", JSON.stringify(recip));
     getApi();
-  }, []);
+  }, [recip]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,10 +65,9 @@ const Home = () => {
   };
 
   return (
-    <div className="home" >
+    <div className="home">
       <Navbar />
-      <HomeDiv  >
-      
+      <HomeDiv>
         <form onSubmit={handleSubmit} action="">
           <HomeLabel htmlFor="">Food Name</HomeLabel>
           <br />
@@ -85,9 +95,10 @@ const Home = () => {
       </HomeDiv>
 
       <div className="my-4 d-flex flex-wrap gap-3 align-items-center justify-content-center">
-         { recip && recip.map((item) => {
-          return <RecipeCard item={item} />;
-        })}
+        {recip &&
+          recip.map((item) => {
+            return <RecipeCard item={item} />;
+          })}
       </div>
     </div>
   );
