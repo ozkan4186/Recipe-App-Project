@@ -12,16 +12,13 @@ import HomeDiv, {
 } from "./Home.style";
 import RecipeCard from "./RecipeCard";
 
-
-
-
 const Home = () => {
- const initializePreviousSearchData = () => {
-   return JSON.parse(localStorage.getItem("recip")) ?? [];
- };
+const initializePreviousSearchData = () => {
+    return JSON.parse(localStorage.getItem("recip")) ?? [];
+  };
 
- 
- 
+
+
 
   const [recip, setRecip] = useState(initializePreviousSearchData());
   const [value, setValue] = useState({

@@ -13,7 +13,7 @@ const Details = () => {
   return (
     <div>
       <Navbar />
-              <button className='btn btn-warning m-3' onClick={()=>navigate(-1)} >go back</button> 
+              <button className='btn btn-warning m-3 display-1' onClick={()=>navigate(-1)} >go back</button> 
  <button className='btn btn-warning' onClick={()=>navigate("/contact")} >go next</button>
 
       <DetailStyle>

@@ -8,6 +8,7 @@ const NavbarDiv = styled.div`
   background-color: #aff0eb;
   flex-wrap: wrap;
   font-family: 'Lobster Two', cursive;
+  font-size: 2rem;
 `;
 export const NavbarUl = styled.ul`
   display: inline-block;
@@ -17,11 +18,12 @@ export const NavbarUl = styled.ul`
   margin-right: 2rem;
   gap: 2rem;
   list-style-type: none;
+  font-size: 2rem;
 `;
 export const NavbarLi = styled.li`
 display: inline-block;
 text-decoration: none;
-font-size: 3rem;
+font-size: 5rem;
 list-style-type: none;
 &:hover{
     background-color: black;

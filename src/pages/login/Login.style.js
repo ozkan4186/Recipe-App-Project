@@ -1,20 +1,21 @@
 import styled from 'styled-components';
 
 const LoginDiv = styled.div`
-width: 500px;
-padding: 2rem;
+width: 700px;
+padding: 8rem;
 margin: 8rem auto;
 background-color:rgba(114, 242, 235, 1) ;
 border-radius: 50%;
 line-height: 2rem;
 box-shadow: 3px 3px 10px  rgba(26, 126, 121, 1);
+font-size: 1.2rem;
 
 
 `;
 
 export const LoginLabel=styled.label`
 color: #FF4858;
-font-size: 1.5rem;
+font-size: 2rem;
 font-weight: bold;
 
 
@@ -24,6 +25,7 @@ export const Loginİnput=styled.input`
 color: #FF4858;
 border-radius: 10px;
 padding: 0.5rem  2rem;
+font-size: 1.5rem;
 
 
 `
@@ -33,7 +35,7 @@ background-color:#FF4858 ;
 margin: 1rem;
 padding: 0.5rem;
 border-radius: 10px;
-font-size: 1rem;
+font-size: 2rem;
 box-shadow: 3px 3px 10px #747F7F;
 cursor: pointer;
 

@@ -33,7 +33,7 @@ const Login = () => {
 
   
     <LoginDiv>
-      <h1>LOGİN</h1>
+      <h1 className="display-2 text-danger fw-3 "  >LOGİN</h1>
       <img style={{ width: "200px" }} src={home} alt="" />
       <form onSubmit={handleSubmit} action="">
         <LoginLabel htmlFor="">Enter Your Name</LoginLabel>
