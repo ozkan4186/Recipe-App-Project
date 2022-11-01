@@ -13,14 +13,7 @@ import HomeDiv, {
 import RecipeCard from "./RecipeCard";
 
 const Home = () => {
-const initializePreviousSearchData = () => {
-    return JSON.parse(localStorage.getItem("recip")) ?? [];
-  };
-
-
-
-
-  const [recip, setRecip] = useState(initializePreviousSearchData());
+  const [recip, setRecip] = useState([]);
   const [value, setValue] = useState({
     foodname: "",
     mealtype: "",

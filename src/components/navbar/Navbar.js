@@ -4,6 +4,10 @@ import logos from "../../assets/logo.jpg";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+
+
+
   return (
     <NavbarDiv>
       <img
@@ -22,7 +26,7 @@ const Navbar = () => {
           <Link style={{color:"red" ,textDecoration:"none" }} to="/contact">Contact</Link>
         </NavbarLi>
         <NavbarLi>
-          <Link style={{color:"red" ,textDecoration:"none" }} to="/">Logaut</Link>
+          <Link  style={{color:"red" ,textDecoration:"none" }} to="/">Logaut</Link>
         </NavbarLi>
       </NavbarUl>
     </NavbarDiv>
